@@ -9,6 +9,7 @@ Further, HISEA is integrated in Canu assembly pipeline which primarily uses __MH
 
 A detailed comparison of HISEA with other leading programs can be found in HISEA paper (Nilesh Khiste and Lucian Ilie). Below are some plots showing different comparisons.
 
+We have used a modified version of _EstimateROC_ utility from MHAP, for evaluating _Sensitivity_, _Specificity_ and _Precision_. The modified _EstimateROC_ Java file can be downloaded from [here](http://www.csd.uwo.ca/~ilie/HISEA/conf_files/EstimateROC.java). To use modified _EstimateROC_ utility, please replace your exiting _EstimateROC.java_ file in MHAP with this copy and recompile MHAP code.
 
 ## Sensitivity Comparisons 
 
