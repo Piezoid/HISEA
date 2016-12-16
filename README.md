@@ -5,6 +5,8 @@ Hierarchical SEed Aligner
 
 HISEA is an efficient all-vs-all long read aligner for SMRT sequencing data. Its algorithm is designed to produce highest alignment sensitivity among others. 
 
+Further, HISEA is integrated in Canu assembly pipeline which primarily uses __MHAP__. The HISEA aligner produces better assembly than MHAP when used in Canu. The Canu+HISEA pipeline can be downloaded from [here.](https://github.com/lucian-ilie/Canu_HISEA)
+
 The evaluation of HISEA genome assembly is performed using 30X and 50X sub-sampled data extracted from original datasets downloaded from [Pacific Biosciences DevNet Datasets](https://github.com/PacificBiosciences/DevNet/wiki/Datasets). The 30X and 50X coverage datasets were sampled using the utility fastqSample available from the Canu pipeline.
 
 The HISEA configuration files used for 30X Canu assembly pipeline can be downloaded from the table below. For 50X, same configuration file was used with modification of __corHiseaSensitivity__ parameter set to __normal__.
