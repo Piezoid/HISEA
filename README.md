@@ -19,6 +19,11 @@ We have used a modified version of _EstimateROC_ utility from MHAP, for evaluati
 <img src="http://www.csd.uwo.ca/faculty/ilie/HISEA/images/Sensitivity_celegans.jpg" width="480" height="288" alt="C.elegans"> | <img src="http://www.csd.uwo.ca/faculty/ilie/HISEA/images/Sensitivity_Arabidopsis.jpg" width="480" height="288" alt="A.thaliana">
 <img src="http://www.csd.uwo.ca/faculty/ilie/HISEA/images/Sensitivity_droso.jpg" width="480" height="288" alt="D.melanogaster"> |
 
+## Sensitivity vs overlap length
+It is expected that larger overlaps are easier to find compared to short ones. This comparison shows how different program behave with increasing overlap length. Clearly HISEA performs best irrespective of the overlap size.
+
+![sensitivity vs overlap length](sensitivityVsovlLen.png?raw=true)
+
 ## INSTALLATION 
 
 Once the zip file has been downloaded, please use following commands to unzip and compile the HISEA program:
@@ -88,5 +93,7 @@ Options:
 
 
 ## CITE
+If you find HISEA program useful, please cite the HISEA paper:
 
-Coming soon - to be updated
+N. Khiste, L. Ilie [HISEA: HIerarchical SEed Aligner for PacBio data](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1953-9) BMC Bioinformatics, 2017
+
