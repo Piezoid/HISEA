@@ -136,7 +136,7 @@ uint64_t SmerMap::getHashKey(uint64_t &smerVal, int &numLocks, uint64_t& kmerSee
 }
 
 
-uint64_t SmerMap::collectKmersParallel(std::unordered_map<uint64_t, char> &ignoreKmerHash)
+uint64_t SmerMap::collectKmersParallel(Kmap<char> &ignoreKmerHash)
 {
     UINT_TYPE kmerSeed= kmerSeedArray[options->getSmerSeedIndex()];
     int kmerSize = kmerSizeArray[options->getSmerSeedIndex()];
@@ -263,7 +263,7 @@ uint64_t SmerMap::collectKmersParallel(std::unordered_map<uint64_t, char> &ignor
     return goodKmer;
 }
 
-void SmerMap::writeIndexToFile(std::unordered_map<uint64_t, char> &ignoreKmerHash)
+void SmerMap::writeIndexToFile(Kmap<char> &ignoreKmerHash)
 {
     uint64_t num_reads = reader->getNumberOfReads();
     uint64_t kmerIgnore=0;
@@ -285,7 +285,7 @@ void SmerMap::writeIndexToFile(std::unordered_map<uint64_t, char> &ignoreKmerHas
     fclose(output_file);
 }
 
-void SmerMap::readIndexFromFile(std::unordered_map<uint64_t, char> &ignoreKmerHash)
+void SmerMap::readIndexFromFile(Kmap<char> &ignoreKmerHash)
 {
     uint64_t num_reads=0, kmerIgnore=0; 
     int self=0;
@@ -316,7 +316,7 @@ void SmerMap::readIndexFromFile(std::unordered_map<uint64_t, char> &ignoreKmerHa
     fclose(read_file);
 }
 
-void SmerMap::insertReferencePositions(std::unordered_map<uint64_t, char> &ignoreKmerHash)
+void SmerMap::insertReferencePositions(Kmap<char> &ignoreKmerHash)
 {
     UINT_TYPE kmerSeed= kmerSeedArray[options->getSmerSeedIndex()];
     int kmerSize = kmerSizeArray[options->getSmerSeedIndex()];
@@ -399,7 +399,7 @@ void SmerMap::insertReferencePositions(std::unordered_map<uint64_t, char> &ignor
     }
 }
 
-void SmerMap::initializeHashForReference(std::unordered_map<uint64_t, char> &ignoreKmerHash, uint64_t &hashSize)
+void SmerMap::initializeHashForReference(Kmap<char> &ignoreKmerHash, uint64_t &hashSize)
 {
     int filterCount=options->getFilterCount(), n=0;
     UINT_TYPE kmerSeed= kmerSeedArray[options->getSmerSeedIndex()];
@@ -452,7 +452,7 @@ void SmerMap::initializeHashForReference(std::unordered_map<uint64_t, char> &ign
     }
 }
 
-void SmerMap::populateIgnoreKmerHash(std::unordered_map<uint64_t, char> &ignoreKmerHash)
+void SmerMap::populateIgnoreKmerHash(Kmap<char> &ignoreKmerHash)
 {
     std::string line;
     char *pch=NULL, *pch1=NULL;
@@ -534,7 +534,7 @@ void SmerMap::populateIgnoreKmerHash(std::unordered_map<uint64_t, char> &ignoreK
 
 void SmerMap::storeAllSmers()
 {
-    std::unordered_map<uint64_t, char> ignoreKmerHash;
+    Kmap<char> ignoreKmerHash;
     uint64_t hashSize;
     std::cerr << "Num of Reference Reads " << reader->getNumberOfReads() <<std::endl;
     std::cerr << "Num of Base Pairs " << reader->getNumberOfBP() <<std::endl;

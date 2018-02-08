@@ -34,6 +34,7 @@
 #include <SequenceReader.h>
 #include <Options.h>
 #include <iostream>
+#include "../ThirdParty/flat_hash_map.hpp"
 
 class ReadHashNode {
     public:
@@ -55,6 +56,9 @@ class SmerNode
         
 };
 
+template<typename V>
+using Kmap = ska::flat_hash_map<uint64_t, V>;
+
 class SmerMap 
 {
     public:
@@ -71,12 +75,12 @@ class SmerMap
         void initializeLocks();
         inline int getNumLocks();
         void rehashSmers();
-        void readIndexFromFile(std::unordered_map<uint64_t, char> &ignoreKmerHash);
-        void writeIndexToFile(std::unordered_map<uint64_t, char> &ignoreKmerHash);
-        uint64_t collectKmersParallel(std::unordered_map<uint64_t, char>& ignoreKmerHash);
-        void initializeHashForReference(std::unordered_map<uint64_t, char>&ignoreKmerHash, uint64_t &hashSize);
-        void populateIgnoreKmerHash(std::unordered_map<uint64_t, char> &ignoreKmerHash);
-        void insertReferencePositions(std::unordered_map<uint64_t, char> &ignoreKmerHash);
+        void readIndexFromFile(Kmap<char> &ignoreKmerHash);
+        void writeIndexToFile(Kmap<char> &ignoreKmerHash);
+        uint64_t collectKmersParallel(Kmap<char>& ignoreKmerHash);
+        void initializeHashForReference(Kmap<char>&ignoreKmerHash, uint64_t &hashSize);
+        void populateIgnoreKmerHash(Kmap<char> &ignoreKmerHash);
+        void insertReferencePositions(Kmap<char> &ignoreKmerHash);
 
         uint64_t currHashTabSize;
         uint64_t prevHashTabSize;
