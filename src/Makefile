@@ -3,7 +3,7 @@
 
 ifndef BIN_DIR
 BIN_DIR := $(CURDIR)
-LOCAL_CXX := -std=c++0x -fopenmp 
+LOCAL_CXX := -fopenmp
 LDFLAGS := -lz 
 ERR := 1
 endif

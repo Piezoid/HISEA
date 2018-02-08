@@ -29,10 +29,10 @@ GCCMAJORVERSION := $(shell expr `gcc -dumpversion | cut -f1 -d.` \>= 4)
 GCCMINORVERSION := $(shell expr `gcc -dumpversion | cut -f2 -d.` \>= 5)
 
 
-#CXXFLAGS = -fopenmp -D_GLIBCXX_PARALLEL -std=c++0x -mpopcnt -DNO_REHASH -DVECTOR
-CXXFLAGS = -fopenmp -D_GLIBCXX_PARALLEL -std=c++0x -mpopcnt -DUINT64 -flto 
-CXXFLAGS_SERIAL = -std=c++0x -mpopcnt -DSERIAL
-CXXFLAGS_NO_REHASH = -std=c++0x -mpopcnt -DNO_REHASH
+#CXXFLAGS = -fopenmp -D_GLIBCXX_PARALLEL -std=c++14 -mpopcnt -DNO_REHASH -DVECTOR
+CXXFLAGS = -fopenmp -D_GLIBCXX_PARALLEL -std=c++14 -march=native -mtune=native -mpopcnt -DUINT64 -flto
+CXXFLAGS_SERIAL = -DSERIAL
+CXXFLAGS_NO_REHASH =  -DNO_REHASH
 
 CXXPROF = -g -gdwarf-3 -pg 
 CXXDEBUG = -g -gdwarf-3 -Wall -Wextra -Wunused -Wuninitialized -DDEBUG 
